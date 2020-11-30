@@ -1,3 +1,15 @@
-version : '3'
+version: "3.8"
 services:
-    
+  manager:
+    build: .
+    environment:
+      - CSV_FILENAME=data.csv
+      - POSTGRES_PASSWORD=motdepasse
+      - POSTGRES_USER=username
+      - POSTGRES_DB=mydatabase
+  db:
+    image: "postgres:latest"
+    environment:
+      - POSTGRES_PASSWORD=motdepasse
+      - POSTGRES_USER=username
+      - POSTGRES_DB=mydatabase
